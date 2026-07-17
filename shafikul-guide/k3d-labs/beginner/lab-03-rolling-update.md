@@ -5,6 +5,9 @@
 
 ---
 
+
+
+
 ## 🎬 Scenario
 
 Your team just shipped v2 of the webapp. You need to deploy it to production.
@@ -58,6 +61,9 @@ spec:
             memory: "128Mi"
             cpu: "200m"
 EOF
+
+
+
 ```
 
 Verify v1 is running:

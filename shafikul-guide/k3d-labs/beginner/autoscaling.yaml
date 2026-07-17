@@ -1,0 +1,21 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: webapp-hpa
+  namespace: production
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1 # required — tells HPA which API group manages the target
+    kind: Deployment
+    name: webapp
+
+  minReplicas: 2 # always keep at least 2 pods for availability (never 1 — no redundancy)
+  maxReplicas: 10 # keep this sane in labs; 1000 would destroy your node in a runaway scenario
+
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70 # scale up when average CPU across pods exceeds 70%
