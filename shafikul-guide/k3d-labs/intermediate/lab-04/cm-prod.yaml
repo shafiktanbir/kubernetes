@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DEBUG_STATUS: "false"
+  LOG_LEVEL: "warning"
+  MAX_CONNECTIONS: "100"
